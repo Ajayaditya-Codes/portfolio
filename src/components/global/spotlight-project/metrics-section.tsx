@@ -13,7 +13,7 @@ export default function MetricsSection() {
       value: 100,
     },
     {
-      name: "Accessibilty",
+      name: "Accessibility",
       value: 98,
     },
     {
@@ -32,7 +32,7 @@ export default function MetricsSection() {
       value: 97,
     },
     {
-      name: "Accessibilty",
+      name: "Accessibility",
       value: 98,
     },
     {

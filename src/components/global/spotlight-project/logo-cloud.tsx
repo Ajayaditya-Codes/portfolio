@@ -1,13 +1,14 @@
+import React, { JSX } from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
-export default function LogoCloud() {
-  type logo = {
+const LogoCloud: React.FC = (): JSX.Element => {
+  type Logo = {
     name: string;
     src: string;
     dark_src?: string;
   };
 
-  const logos: logo[] = [
+  const logos: Logo[] = [
     { name: "Next.Js", src: "/next.svg", dark_src: "/next-dark.svg" },
     {
       name: "TypeScript",
@@ -61,9 +62,13 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="w-full  flex flex-col space-y-10 justify-center items-center pt-52">
-      <h5 className="text-2xl font-semibold">Loved by Teams. Built Using</h5>
+    <div className="w-full flex flex-col space-y-10 justify-center items-center pt-52">
+      <h5 className="text-2xl font-semibold">
+        Loved by Teams, Quirk V2 is Built Using
+      </h5>
       <InfiniteMovingCards items={logos} speed="normal" pauseOnHover={false} />
     </div>
   );
-}
+};
+
+export default LogoCloud;

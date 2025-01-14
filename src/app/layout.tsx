@@ -1,9 +1,11 @@
+import React, { JSX } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theming/theme-provider";
-import AnimatedCursorClient from "@/components/ui/animated-cursor-client"; // Client component for lazy loading
+import AnimatedCursorClient from "@/components/ui/animated-cursor-client";
 import Head from "next/head";
+import { Author } from "next/dist/lib/metadata/types/metadata-types";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +33,9 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode }>): JSX.Element => {
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
@@ -42,7 +44,10 @@ export default function RootLayout({
           name="keywords"
           content={(metadata.keywords as string[]).join(", ")}
         />
-        <meta name="author" content={metadata.authors as string} />
+        <meta
+          name="author"
+          content={(metadata.authors as Author[]).map((a) => a.name).join(", ")}
+        />
         <meta name="viewport" content={metadata.viewport as string} />
         <meta name="robots" content={metadata.robots as string} />
         <title>{metadata.title as string}</title>
@@ -62,4 +67,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

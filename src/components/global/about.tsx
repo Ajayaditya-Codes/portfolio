@@ -1,4 +1,6 @@
-export default function About() {
+import React from "react";
+
+const About: React.FC = () => {
   return (
     <div className="w-[90vw] max-w-[1000px] flex flex-col justify-start items-start mx-auto px-auto my-40">
       <h5 className="text-xl font-bold text-[#8a00c4] dark:text-sky-400">
@@ -18,11 +20,13 @@ export default function About() {
       <p className="text-pretty text-xl md:text-2xl font-medium">
         I&apos;m pursuing a B.E. in Robotics at Kumaraguru College of Technology
         (CGPA: 9.3) and an online B.S. in Data Science and Programming at IIT
-        Madras (CGPA: 9.7), along with a Diploma in Programming from IITM.
-        Balancing dual degrees with project work has sharpened my time
-        management and problem-solving skills, equipping me to handle
+        Madras (CGPA: 9.7). I have completed my Diploma in Programming from IITM
+        with Merit. Balancing dual degrees with project work has sharpened my
+        time management and problem-solving skills, equipping me to handle
         challenging environments with ease.
       </p>
     </div>
   );
-}
+};
+
+export default About;

@@ -1,8 +1,9 @@
+import React from "react";
 import FeaturesSection from "./features-section";
 import LogoCloud from "./logo-cloud";
 import MetricsSection from "./metrics-section";
 
-export default function SpotlightProject() {
+const SpotlightProject: React.FC = () => {
   return (
     <div className="w-[90vw] flex flex-col justify-center items-center mx-auto px-auto my-40">
       <div className="relative w-full h-fit justify-center items-center flex">
@@ -16,4 +17,6 @@ export default function SpotlightProject() {
       <LogoCloud />
     </div>
   );
-}
+};
+
+export default SpotlightProject;

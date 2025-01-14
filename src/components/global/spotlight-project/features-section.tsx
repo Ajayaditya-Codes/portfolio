@@ -1,13 +1,13 @@
+import React, { JSX } from "react";
 import {
   IconBrandOpenai,
   IconSchema,
   IconBrandSpeedtest,
   IconTrendingUp,
 } from "@tabler/icons-react";
-import { JSX } from "react";
 import { LinkPreview } from "@/components/ui/link-preview";
 
-export default function FeaturesSection() {
+const FeaturesSection: React.FC = (): JSX.Element => {
   type Feature = {
     name: string;
     description: string;
@@ -49,13 +49,13 @@ export default function FeaturesSection() {
               </h2>
               <div className="flex flex-row gap-x-5">
                 <LinkPreview url="https://quirk-v2.vercel.app">
-                  <div className="mt-5  text-xl flex flex-row space-x-3 font-bold">
+                  <div className="mt-5 text-xl flex flex-row space-x-3 font-bold">
                     <p className="underline">View Project </p>
                     <IconTrendingUp />
                   </div>
                 </LinkPreview>
                 <LinkPreview url="https://github.com/Ajayaditya-Codes/Quirk-V3">
-                  <div className="mt-5  text-xl flex flex-row space-x-3 font-bold">
+                  <div className="mt-5 text-xl flex flex-row space-x-3 font-bold">
                     <p className="underline">View GitHub Repo </p>
                     <IconTrendingUp />
                   </div>
@@ -96,4 +96,6 @@ export default function FeaturesSection() {
       </div>
     </div>
   );
-}
+};
+
+export default FeaturesSection;
