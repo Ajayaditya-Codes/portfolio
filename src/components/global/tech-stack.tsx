@@ -1,3 +1,5 @@
+"use client";
+
 import React, { JSX } from "react";
 import {
   Tooltip,
@@ -6,6 +8,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 type Tech = {
   name: string;
@@ -13,7 +17,39 @@ type Tech = {
   dark_src?: string;
 };
 
+const headingVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const techItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
 const TechStack: React.FC = (): JSX.Element => {
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const { ref: gridRef, inView: gridInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   const tech_stack: Tech[] = [
     { name: "TypeScript", src: "/typescript.svg" },
     { name: "React.Js", src: "/react-logo.svg" },
@@ -45,18 +81,39 @@ const TechStack: React.FC = (): JSX.Element => {
 
   return (
     <div className="mx-auto mb-40 flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto">
-      <h5 className="text-xl font-bold text-[#8a00c4] dark:text-sky-400">
+      <motion.h5
+        ref={headingRef}
+        initial="hidden"
+        animate={headingInView ? "visible" : "hidden"}
+        variants={headingVariants}
+        className="text-xl font-bold text-[#8a00c4] dark:text-sky-400"
+      >
         Tech Stack
-      </h5>
-      <h3 className="mt-2 mb-5 text-2xl font-bold sm:text-3xl">
+      </motion.h5>
+      <motion.h3
+        ref={headingRef}
+        initial="hidden"
+        animate={headingInView ? "visible" : "hidden"}
+        variants={headingVariants}
+        className="mt-2 mb-5 text-2xl font-bold sm:text-3xl"
+      >
         Technologies I Leverage for Seamless Development
-      </h3>
-      <div className="mt-5 grid w-fit grid-cols-3 gap-5 self-center sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+      </motion.h3>
+      <motion.div
+        ref={gridRef}
+        initial="hidden"
+        animate={gridInView ? "visible" : "hidden"}
+        variants={gridVariants}
+        className="mt-5 grid w-fit grid-cols-3 gap-5 self-center sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+      >
         {tech_stack.map((tech) => (
           <TooltipProvider key={tech.name}>
             <Tooltip>
               <TooltipTrigger>
-                <div className="aspect-square col-span-1 flex flex-col items-center justify-center p-5 hover:scale-125 animate-in ease-in-out">
+                <motion.div
+                  className="aspect-square col-span-1 flex flex-col items-center justify-center p-5 hover:scale-125 ease-in-out"
+                  variants={techItemVariants}
+                >
                   <Image
                     alt={`Logo of ${tech.name}`}
                     src={tech.src}
@@ -76,7 +133,7 @@ const TechStack: React.FC = (): JSX.Element => {
                       className="hidden w-full object-contain dark:flex"
                     />
                   )}
-                </div>
+                </motion.div>
               </TooltipTrigger>
               <TooltipContent>
                 <p className="text-xl">{tech.name}</p>
@@ -84,7 +141,7 @@ const TechStack: React.FC = (): JSX.Element => {
             </Tooltip>
           </TooltipProvider>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

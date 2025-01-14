@@ -29,6 +29,11 @@ const SpotlightProject: React.FC = () => {
     },
   };
 
+  const headerVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -38,9 +43,13 @@ const SpotlightProject: React.FC = () => {
       variants={containerVariants}
     >
       <div className="relative w-full h-fit justify-center items-center flex">
-        <div className="w-full border absolute top-[30px] flex border-black dark:border-white"></div>
-
-        {/* Title with animation */}
+        <motion.div
+          className="absolute top-[30px] flex w-full border border-[#020817] dark:border-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={headerVariants}
+        ></motion.div>
         <motion.div
           className="w-fit mx-auto bg-white z-10 dark:bg-gray-950 rounded-2xl py-3 text-2xl font-bold text-[#8a00c4] dark:text-sky-400 px-5 border-2 border-black dark:border-white flex absolute top-0 h-[60px]"
           variants={titleVariants}
@@ -49,7 +58,6 @@ const SpotlightProject: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Child sections */}
       <FeaturesSection />
       <MetricsSection />
       <LogoCloud />

@@ -96,7 +96,7 @@ const FeaturesSection: React.FC = (): JSX.Element => {
                 Quirk V2 - the GitHub Automata
               </motion.h2>
 
-              <div className="flex flex-row gap-x-5">
+              <div className="flex flex-col md:flex-row gap-x-5">
                 <LinkPreview url="https://quirk-v2.vercel.app">
                   <div className="mt-5 text-xl flex flex-row space-x-3 font-bold">
                     <p className="underline">View Project </p>
@@ -104,7 +104,7 @@ const FeaturesSection: React.FC = (): JSX.Element => {
                   </div>
                 </LinkPreview>
                 <LinkPreview url="https://github.com/Ajayaditya-Codes/Quirk-V3">
-                  <div className="mt-5 text-xl flex flex-row space-x-3 font-bold">
+                  <div className="mt-2 md:mt-5 text-xl flex flex-row space-x-3 font-bold">
                     <p className="underline">View GitHub Repo </p>
                     <IconTrendingUp />
                   </div>
