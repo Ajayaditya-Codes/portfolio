@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
@@ -87,7 +88,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <div key={item.name}>
-            <img
+            <Image
               alt={item.name}
               src={item.src}
               width={158}
@@ -98,7 +99,7 @@ export const InfiniteMovingCards = ({
               }
             />
             {item.dark_src && (
-              <img
+              <Image
                 alt={item.name}
                 src={item.dark_src}
                 width={158}

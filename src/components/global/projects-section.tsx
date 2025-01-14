@@ -1,22 +1,23 @@
+import React, { JSX } from "react";
 import { IconTrendingUp } from "@tabler/icons-react";
 import { LinkPreview } from "../ui/link-preview";
 
-export default function ProjectsSection() {
-  type project = {
-    name: string;
-    repoUrl: string;
-    url?: string;
-    description: string;
-    techStack: string;
-  };
+type Project = {
+  name: string;
+  repoUrl: string;
+  url?: string;
+  description: string;
+  techStack: string;
+};
 
-  const projects: project[] = [
+const ProjectsSection: React.FC = (): JSX.Element => {
+  const projects: Project[] = [
     {
       name: "Quirk V1: Pioneering Workflow Automation",
       url: "https://quirk-v1.vercel.app",
       repoUrl: "https://github.com/Ajayaditya-Codes/Quirk-V1",
       description:
-        "Quirk V1 is the initial iteration of a drag-and-drop workflow automation tool designed to integrate seamlessly with platforms like GitHub, Slack, and Asana. While offering foundational automation capabilities, Quirk V1 lacks the AI integration, responsive design, advanced analytics and many other notable features of its successor. It served as a strong proof of concept, focusing on core automation and user-friendly interfaces.",
+        "Quirk V1 is the initial iteration of a drag-and-drop workflow automation tool designed to integrate seamlessly with platforms like GitHub, Slack, and Asana. While offering foundational automation capabilities, Quirk V1 lacks the AI integration, responsive design, advanced analytics, and many other notable features of its successor. It served as a strong proof of concept, focusing on core automation and user-friendly interfaces.",
       techStack:
         "Next.js, React Flow, Zustand, Clerk Auth, TailwindCSS, Ngrok, Neon Tech",
     },
@@ -30,57 +31,57 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <div className="w-[90vw] flex flex-col justify-center items-center mx-auto px-auto mt-40">
-      <div className="relative w-full h-fit justify-center items-center flex">
-        <div className="w-full border absolute top-[30px] flex border-[#020817] dark:border-white"></div>
-        <div className="w-fit mx-auto bg-white z-10 dark:bg-gray-950 rounded-2xl py-3 text-2xl font-bold text-[#8a00c4] dark:text-sky-400 px-5 border-2 border-black dark:border-white flex absolute top-0 h-[60px]">
+    <div className="mx-auto mt-40 flex w-[90vw] flex-col items-center justify-center px-auto">
+      <div className="relative flex h-fit w-full items-center justify-center">
+        <div className="absolute top-[30px] flex w-full border border-[#020817] dark:border-white"></div>
+        <div className="absolute top-0 z-10 flex h-[60px] w-fit items-center justify-center rounded-2xl border-2 border-black bg-white px-5 py-3 text-2xl font-bold text-[#8a00c4] dark:border-white dark:bg-gray-950 dark:text-sky-400">
           My Projects
         </div>
       </div>
-      <div className="w-[90vw] max-w-[1000px] flex flex-col justify-start items-start mx-auto px-auto mt-40 mb-20 space-y-10">
+      <div className="mx-auto mt-40 mb-20 flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto space-y-10">
         {projects.map((project) => (
           <div
-            className="flex flex-col justify-start items-start"
+            className="flex flex-col items-start justify-start"
             key={project.name}
           >
             <h5 className="text-xl font-bold text-[#8a00c4] dark:text-sky-400">
               {project.techStack}
             </h5>
-
-            <h3 className="text-2xl sm:text-3xl font-bold mt-2 mb-5">
+            <h3 className="mt-2 mb-5 text-2xl font-bold sm:text-3xl">
               {project.name}
             </h3>
-            <div className="flex flex-row gap-x-5 -mt-2 mb-5">
+            <div className="mb-5 -mt-2 flex flex-row gap-x-5">
               {project.url && (
-                <LinkPreview url={project.repoUrl}>
-                  <div className=" text-xl flex flex-row space-x-3 font-bold">
-                    <p className="underline">View Project </p>
+                <LinkPreview url={project.url}>
+                  <div className="flex flex-row space-x-3 text-xl font-bold">
+                    <p className="underline">View Project</p>
                     <IconTrendingUp />
                   </div>
                 </LinkPreview>
               )}
-
               <LinkPreview url={project.repoUrl}>
-                <div className="text-xl flex flex-row space-x-3 font-bold">
-                  <p className="underline">View GitHub Repo </p>
+                <div className="flex flex-row space-x-3 text-xl font-bold">
+                  <p className="underline">View GitHub Repo</p>
                   <IconTrendingUp />
                 </div>
               </LinkPreview>
             </div>
-            <p className="text-pretty text-xl md:text-2xl font-medium">
+            <p className="text-pretty text-xl font-medium md:text-2xl">
               {project.description}
             </p>
-            <div className="flex container border w-full mt-16"></div>
+            <div className="mt-16 w-full border"></div>
           </div>
         ))}
       </div>
       <LinkPreview
         url="https://github.com/Ajayaditya-Codes"
-        className="flex flex-row space-x-2 font-bold text-2xl"
+        className="flex flex-row space-x-2 text-2xl font-bold"
       >
         <h6 className="underline">View All Projects on GitHub</h6>
         <IconTrendingUp />
       </LinkPreview>
     </div>
   );
-}
+};
+
+export default ProjectsSection;

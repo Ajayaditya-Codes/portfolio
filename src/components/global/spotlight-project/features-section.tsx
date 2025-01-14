@@ -6,6 +6,7 @@ import {
   IconTrendingUp,
 } from "@tabler/icons-react";
 import { LinkPreview } from "@/components/ui/link-preview";
+import Image from "next/image";
 
 const FeaturesSection: React.FC = (): JSX.Element => {
   type Feature = {
@@ -78,14 +79,14 @@ const FeaturesSection: React.FC = (): JSX.Element => {
               </div>
             </div>
           </div>
-          <img
+          <Image
             alt="Product screenshot"
             src="/hero-dark-sm.png"
             width={2800}
             height={2000}
             className="dark:flex hidden w-[55rem] max-w-none rounded-xl shadow-xl sm:w-[75rem] md:-ml-4 lg:-ml-0"
           />
-          <img
+          <Image
             alt="Product screenshot"
             src="/hero-light-sm.png"
             width={2800}
