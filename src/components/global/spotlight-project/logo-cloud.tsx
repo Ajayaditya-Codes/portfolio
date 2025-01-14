@@ -1,5 +1,9 @@
+"use client";
+
 import React, { JSX } from "react";
+import { motion } from "framer-motion";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { useInView } from "react-intersection-observer";
 
 const LogoCloud: React.FC = (): JSX.Element => {
   type Logo = {
@@ -36,7 +40,7 @@ const LogoCloud: React.FC = (): JSX.Element => {
       src: "/drizzle-logomark.png",
       dark_src: "/drizzle-logomark-dark.png",
     },
-    { name: "Kinde Auth", src: "kinde.png", dark_src: "/kinde-dark.png" },
+    { name: "Kinde Auth", src: "/kinde.png", dark_src: "/kinde-dark.png" },
     {
       name: "Nodejs",
       src: "/nodejs-logomark.svg",
@@ -61,11 +65,35 @@ const LogoCloud: React.FC = (): JSX.Element => {
     { name: "Yarn", src: "/yarn.svg" },
   ];
 
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2, // Trigger when 20% of the element is visible
+  });
+
+  // Variants for the heading animation
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className="w-full flex flex-col space-y-10 justify-center items-center pt-52">
-      <h5 className="text-2xl font-semibold">
+      <motion.h5
+        className="text-2xl font-semibold"
+        ref={headingRef}
+        initial="hidden"
+        animate={headingInView ? "visible" : "hidden"}
+        variants={headingVariants}
+      >
         Loved by Teams, Quirk V2 is Built Using
-      </h5>
+      </motion.h5>
       <InfiniteMovingCards items={logos} speed="normal" pauseOnHover={false} />
     </div>
   );
