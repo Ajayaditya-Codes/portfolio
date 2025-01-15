@@ -80,7 +80,7 @@ const TechStack: React.FC = (): JSX.Element => {
   ];
 
   return (
-    <div className="mx-auto mb-40 flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto">
+    <div className="mx-auto flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto">
       <motion.h5
         ref={headingRef}
         initial="hidden"

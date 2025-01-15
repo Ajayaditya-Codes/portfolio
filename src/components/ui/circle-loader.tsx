@@ -29,7 +29,7 @@ export default function CircleLoader({ score }: { score: number }) {
           cx="60"
           cy="60"
           r={radius}
-          stroke="#005500"
+          stroke="#d9f99d"
           strokeWidth="8"
           fill="none"
         />
@@ -38,7 +38,7 @@ export default function CircleLoader({ score }: { score: number }) {
           cx="60"
           cy="60"
           r={radius}
-          stroke="#00ff00"
+          stroke="#22c55e"
           strokeWidth="8"
           fill="none"
           strokeDasharray={circumference}

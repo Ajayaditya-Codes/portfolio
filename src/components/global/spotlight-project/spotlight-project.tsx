@@ -51,7 +51,7 @@ const SpotlightProject: React.FC = () => {
           variants={headerVariants}
         ></motion.div>
         <motion.div
-          className="w-fit mx-auto bg-white z-10 dark:bg-gray-950 rounded-2xl py-3 text-2xl font-bold text-[#8a00c4] dark:text-sky-400 px-5 border-2 border-black dark:border-white flex absolute top-0 h-[60px]"
+          className="w-fit mx-auto bg-white z-10 dark:bg-gray-950 rounded-2xl py-3 text-lg sm:text-2xl font-bold text-[#8a00c4] dark:text-sky-400 px-5 border-2 border-black dark:border-white flex absolute top-0 "
           variants={titleVariants}
         >
           Spotlight Project

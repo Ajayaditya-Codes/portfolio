@@ -91,7 +91,9 @@ const LogoCloud: React.FC = (): JSX.Element => {
               height={48}
               className="w-[50px] object-contain"
             />
-            <h6 className="text-2xl font-bold">TypeScript</h6>
+            <h6 className="text-xl sm:text-2xl font-semibold sm:font-bold">
+              TypeScript
+            </h6>
           </div>
         </motion.div>
 
@@ -121,13 +123,18 @@ const LogoCloud: React.FC = (): JSX.Element => {
             height={48}
             className="col-span-2 w-[200px] object-contain lg:col-span-1"
           />
-          <Image
-            alt="React.Js"
-            src="/react.svg"
-            width={158}
-            height={48}
-            className="col-span-2 w-[200px] object-contain lg:col-span-1"
-          />
+          <div className="col-span-2 flex flex-row items-center justify-center space-x-2 sm:space-x-3 lg:col-span-1">
+            <Image
+              alt="TypeScript"
+              src="/typescript.svg"
+              width={158}
+              height={48}
+              className="w-[40px] sm:w-[50px] object-contain"
+            />
+            <h6 className="text-lg sm:text-xl md:text-2xl font-semibold sm:font-bold">
+              TypeScript
+            </h6>
+          </div>
         </motion.div>
       </div>
     </motion.div>

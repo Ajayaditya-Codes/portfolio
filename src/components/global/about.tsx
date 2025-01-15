@@ -47,7 +47,7 @@ const About: React.FC = (): JSX.Element => {
       ].map((text, index) => (
         <motion.p
           key={index}
-          className="mb-5 text-xl font-medium text-pretty md:text-2xl"
+          className="text-xl text-gray-600 dark:text-gray-300 mb-3"
           variants={paragraphVariants(index)}
         >
           {text}

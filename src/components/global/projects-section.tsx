@@ -83,7 +83,7 @@ const ProjectsSection: React.FC = (): JSX.Element => {
           variants={headerVariants}
         ></motion.div>
         <motion.div
-          className="absolute top-0 z-10 flex h-[60px] w-fit items-center justify-center rounded-2xl border-2 border-black bg-white px-5 py-3 text-2xl font-bold text-[#8a00c4] dark:border-white dark:bg-gray-950 dark:text-sky-400"
+          className="w-fit mx-auto bg-white z-10 dark:bg-gray-950 rounded-2xl py-3 text-lg sm:text-2xl font-bold text-[#8a00c4] dark:text-sky-400 px-5 border-2 border-black dark:border-white flex absolute top-0 "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -92,7 +92,7 @@ const ProjectsSection: React.FC = (): JSX.Element => {
           My Projects
         </motion.div>
       </div>
-      <div className="mx-auto mt-40 mb-20 flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto space-y-10">
+      <div className="mx-auto my-20 flex w-[90vw] max-w-[1000px] flex-col items-start justify-start px-auto space-y-10">
         {projects.map((project, index) => (
           <motion.div
             className="flex flex-col items-start justify-start"
@@ -102,7 +102,7 @@ const ProjectsSection: React.FC = (): JSX.Element => {
             viewport={{ once: true }}
             variants={projectCardVariants(index)}
           >
-            <h5 className="text-xl font-bold text-[#8a00c4] dark:text-sky-400">
+            <h5 className="text-base/7 font-semibold text-[#8a00c4] dark:text-sky-400">
               {project.techStack}
             </h5>
             <h3 className="mt-2 mb-5 text-2xl font-bold sm:text-3xl">
@@ -124,7 +124,7 @@ const ProjectsSection: React.FC = (): JSX.Element => {
                 </div>
               </LinkPreview>
             </div>
-            <p className="text-pretty text-xl font-medium md:text-2xl">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               {project.description}
             </p>
             <motion.div
@@ -139,7 +139,7 @@ const ProjectsSection: React.FC = (): JSX.Element => {
       </div>
       <LinkPreview url="https://github.com/Ajayaditya-Codes">
         <motion.div
-          className="flex flex-row space-x-2 text-2xl font-bold"
+          className="flex flex-row space-x-2 text-xl text-center sm:text-2xl font-bold"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

@@ -21,7 +21,7 @@ export default function MetricsSection() {
       value: 98,
     },
     {
-      name: "Best Practices",
+      name: "Practices",
       value: 96,
     },
     {
@@ -40,7 +40,7 @@ export default function MetricsSection() {
       value: 98,
     },
     {
-      name: "Best Practices",
+      name: "Practices",
       value: 96,
     },
     {
@@ -108,7 +108,9 @@ export default function MetricsSection() {
                   key={metric.name}
                 >
                   <CircleLoader score={metric.value} />
-                  <p className="text-xl font-bold">{metric.name}</p>
+                  <p className="text-center text-xl font-medium mt-2">
+                    {metric.name}
+                  </p>
                 </div>
               ))}
             </div>
@@ -132,11 +134,13 @@ export default function MetricsSection() {
             <div className="grid gap-10 grid-cols-4 border-2 w-full px-auto border-black dark:border-white p-5 rounded-3xl">
               {mobile_metrics.map((metric) => (
                 <div
-                  className="flex flex-col justify-center items-center py-3 col-span-2 md:col-span-1"
+                  className="flex flex-col items-center py-3 col-span-2 md:col-span-1 h-full"
                   key={metric.name}
                 >
                   <CircleLoader score={metric.value} />
-                  <p className="text-xl font-bold">{metric.name}</p>
+                  <p className="text-center text-xl font-medium mt-2">
+                    {metric.name}
+                  </p>
                 </div>
               ))}
             </div>
