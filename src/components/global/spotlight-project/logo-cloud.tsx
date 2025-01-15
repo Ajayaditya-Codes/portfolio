@@ -86,7 +86,7 @@ const LogoCloud: React.FC = (): JSX.Element => {
   return (
     <div className="w-full flex flex-col space-y-10 justify-center items-center pt-52">
       <motion.h5
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-center"
         ref={headingRef}
         initial="hidden"
         animate={headingInView ? "visible" : "hidden"}

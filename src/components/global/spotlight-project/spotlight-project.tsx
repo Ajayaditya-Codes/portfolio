@@ -9,7 +9,7 @@ import MetricsSection from "./metrics-section";
 const SpotlightProject: React.FC = () => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger animation only once
-    threshold: 0.2, // Trigger animation when 20% of the section is visible
+    threshold: 0.05, // Trigger animation when 20% of the section is visible
   });
 
   const containerVariants = {
